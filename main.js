@@ -90,6 +90,8 @@ let getDataPromise = (dataArray) => {
 
 getDataPromise(data)
   .then((dataInfo) => {
-    console.log(dataInfo)
-
-  })
+    // console.log(dataInfo)
+  const newOutput = dataInfo.forEach(element => console.log(`Hello ${element.firstName} ${element.lastName}`))
+  console.log(newOutput)
+}
+  )
