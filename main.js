@@ -1,51 +1,54 @@
 // 1.
-// // Create a promise called myFirstPromise
-// const myPromise = new Promise( (resolve, reject)=>{
-//   // Inside the promise
-//   // Create a boolean variable check and set it to true
-//   let booleanValue = true
+// Create a promise called myFirstPromise
+const myPromise = new Promise((resolve, reject) => {
+  // Inside the promise
+  // Create a boolean variable check and set it to true
+  let booleanValue = true
 
-//   // Create a variable rand and it should calculate a random number between 1 and 10
-//   let rand = Math.floor((Math.random() * 10) +1);
+  // Create a variable rand and it should calculate a random number between 1 and 10
+  let rand = Math.floor((Math.random() * 10) + 1);
 
-//   // If the check boolean is true it should resolve with the
-//   // result of a random number between one and ten
-//   if(booleanValue){
-//     setTimeout( ()=> {
+  // If the check boolean is true it should resolve with the
+  // result of a random number between one and ten
+  if (booleanValue) {
+    setTimeout(() => {
 
-//       resolve(rand);
-//     },2000)
-//   }
-//   // if the check boolean is false, it should reject with
-//   // a string that says: Cannot computer random number
-//   else {
-//     setTimeout( ()=>{
+      resolve(rand);
+    }, 2000)
+  }
+  // if the check boolean is false, it should reject with
+  // a string that says: Cannot computer random number
+  else {
+    setTimeout(() => {
 
-//       reject('cannot computer random number')
-//     }, 2000);
-//   }
-//   // Both resolve and reject should only occur after 2 seconds
+      reject('cannot compute random number')
+    }, 2000);
+  }
+  // Both resolve and reject should only occur after 2 seconds
 
-// }
-// );
+}
+);
 
-// // Now call the promise you created and chain your thenables.
-// myPromise.then((rand)=>{
-//   // In your first thenable
-//   // console.log('I have my random number <the number> and I will multiply it by 5')
-//   // Multiply your random number by 5 and pass the data to the next thenable
-//   console.log(`i have my random number ${rand} and i will multiply it by 5`)
-//   let result = rand * 5
-//   return result
-// })
+// Now call the promise you created and chain your thenables.
+myPromise.then((randomNumber) => {
+  // In your first thenable
+  // console.log('I have my random number <the number> and I will multiply it by 5')
+  // Multiply your random number by 5 and pass the data to the next thenable
+  console.log(`i have my random number ${randomNumber} and i will multiply it by 5`)
+  let result = randomNumber * 5
+  return result;
+})
 
-// // In your second thenable log a String
-// // that says `Here is the result of my random number multiplied
-// // by 5: < place number result here>`
-// .then((result)=>{
-//   console.log(`Here is the result of my random number multiplied by 5: ${result}`)
+  // In your second thenable log a String
+  // that says `Here is the result of my random number multiplied
+  // by 5: < place number result here>`
+  .then((result) => {
+    console.log(`Here is the result of my random number multiplied by 5: ${result}`)
 
-// })
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 
 
 
@@ -91,7 +94,13 @@ let getDataPromise = (dataArray) => {
 getDataPromise(data)
   .then((dataInfo) => {
     // console.log(dataInfo)
-  const newOutput = dataInfo.forEach(element => console.log(`Hello ${element.firstName} ${element.lastName}`))
-  console.log(newOutput)
-}
+
+
+    let newOutput = dataInfo.forEach(element => console.log(`Hello ${element.firstName} ${element.lastName}`))
+    console.log(newOutput)
+  }
   )
+  .catch((err) => {
+    console.log(err)
+  })
+
