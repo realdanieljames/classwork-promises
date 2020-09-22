@@ -93,11 +93,9 @@ let getDataPromise = (dataArray) => {
 
 getDataPromise(data)
   .then((dataInfo) => {
-    // console.log(dataInfo)
 
-
-    let newOutput = dataInfo.forEach(element => console.log(`Hello ${element.firstName} ${element.lastName}`))
-    console.log(newOutput)
+    
+    return dataInfo.forEach(element => console.log(`Hello ${element.firstName} ${element.lastName}`))
   }
   )
   .catch((err) => {
